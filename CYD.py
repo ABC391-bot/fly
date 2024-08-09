@@ -46,7 +46,7 @@ def page2():
             time.sleep(0.02)
             roading.progress(i, '正在加载'+str(i)+'%')
         roading.progress(100, '加载完毕！')
-        t1,t2,t3,t4,t5 = st.tabs(['原图','改色1','改色2','改色3',"改色4"])
+        t1,t2,t3,t4 = st.tabs(['原图','改色1','改色2','改色3'])
         with t1:
             st.image(img)
         with t2:
@@ -54,9 +54,9 @@ def page2():
         with t3:
             st.image(img_change(img, 1, 0, 2))
         with t4:
-            st.image(img_change(img, 1, 2, 0))
-        with t5:
             st.image(img_change(img, 2, 1, 0))
+
+            
 
 def page3():
     with open('1.mp3','rb') as f:
@@ -69,7 +69,7 @@ def page3():
     st.link_button('18季空中浩劫', 'https://www.bilibili.com/video/av46907972/')
     st.link_button('19季空中浩劫', 'https://www.bilibili.com/video/av711878797/')
     st.link_button('20季空中浩劫', 'https://www.bilibili.com/video/av711958221/')
-    st.link_button('21季空中浩劫', 'https://www.guazifx.com/b/f03c.html')
+    st.link_button('21季空中浩劫', 'https://www.bilibili.com/read/cv12356007/')
     st.link_button('22季空中浩劫', 'https://www.bilibili.com/read/cv16012570/')
 def page4():
     with open('1.mp3','rb') as f:
