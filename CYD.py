@@ -123,7 +123,6 @@ def page6():
     st.audio(mymp3, format='audio/mp3',start_time = 0)
     st.write(':sunglasses:飞友留言区:sunglasses:')
     st.write('对不起飞友们，这个聊天框是很老的版本了，所以有一些小bug。你必须按两次留言键（虽然会显示两次，不过不影响，按一次显示不了）：')
-    n = st.text_input('取名')
     with open('leave_messages.txt', 'r', encoding='utf-8') as f:
         messages_list = f.read().split('\n')
     for i in range(len(messages_list)):
