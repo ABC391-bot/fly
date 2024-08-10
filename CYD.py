@@ -163,7 +163,7 @@ def page7():
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
     st.title('沉痛')
-    st.header('[:cry:巴西沃帕斯航空2283号班机在当地时间8月9日在巴西东南部圣保罗州维涅杜市坠毁，机上61人全部遇难:cry:]')
+    st.header(':cry:巴西沃帕斯航空2283号班机在当地时间8月9日在巴西东南部圣保罗州维涅杜市坠毁，机上61人全部遇难:cry:')
 
 def img_change(img, rc, gc, bc):
     width, height = img.size
