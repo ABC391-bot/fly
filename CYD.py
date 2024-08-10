@@ -3,12 +3,8 @@ import streamlit as st
 import time
 from PIL import Image
 import pandas as pd
-page = st.sidebar.radio('我的首页',['欢迎加入','飞友狂欢主页','飞友的图片处理工具','空中浩劫全集超链接','飞友的英文词典','飞友留言区','飞马游戏推荐','实时新闻'])
+page = st.sidebar.radio('我的首页',['飞友狂欢主页','飞友的图片处理工具','空中浩劫全集超链接','飞友的英文词典','飞友留言区','飞马游戏推荐','实时新闻'])
 def page1():
-    with open('1.mp3','rb') as f:
-        mymp3 = f.read()
-    st.audio(mymp3, format='audio/mp3',start_time = 0)
-def page2():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -30,7 +26,7 @@ def page2():
     d = {'波音': ['707', '717', '727', '737', '747', '757', '767', '777', '787'], '空客': ['A220', 'A310', 'A319', 'A320', 'A321', 'A330', 'A340', 'A350', 'A380']}
     a = pd.DataFrame(d)
     st.write(a)
-def page3():
+def page2():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -59,7 +55,7 @@ def page3():
 
 
 
-def page4():
+def page3():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -72,7 +68,7 @@ def page4():
     st.link_button('20季空中浩劫', 'https://www.bilibili.com/video/av711958221/')
     st.link_button('21季空中浩劫', 'https://www.bilibili.com/read/cv12356007/')
     st.link_button('22季空中浩劫', 'https://www.bilibili.com/read/cv16012570/')
-def page5():
+def page4():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -115,7 +111,7 @@ def page5():
 
 
 
-def page6():
+def page5():
     global name
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
@@ -146,7 +142,7 @@ def page6():
                 message += i[0] + '#' + i[1] + '#' + i[2] + '\n'
             message = message[:-1]
             f.write(message)
-def page7():
+def page6():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -162,7 +158,7 @@ def page7():
     st.write(msg7)
     st.write(msg8)
     st.write(msg9)
-def page8():
+def page7():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
@@ -181,21 +177,19 @@ def img_change(img, rc, gc, bc):
     return img
 
 
-if (page == '欢迎加入'):
+if (page == '飞友狂欢主页'):
     page1()
-elif (page == '飞友狂欢主页'):
-    page2()
 elif (page == '飞友的图片处理工具') :
-    page3()
+    page2()
 elif (page == '空中浩劫全集超链接') :
-    page4()
+    page3()
 elif (page == '飞友的英文词典') :
-    page5()
+    page4()
 elif (page == '飞友留言区') :
-    page6()
+    page5()
 elif (page == '飞马游戏推荐') :
-    page7()
+    page6()
 elif (page == '实时新闻') :
-    page8()
+    page7()
 
 
