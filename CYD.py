@@ -4,8 +4,23 @@ import time
 from PIL import Image
 import pandas as pd
 import base64
-
-page = st.sidebar.radio('我的首页',['飞友狂欢主页','飞友的图片处理工具','空中浩劫全集超链接','飞友的英文词典','飞友留言区','飞马游戏推荐'])
+st.title('登录网站')
+st.header('这是一个飞友们的网站')
+st.subheader("你是飞友吗？")
+my_open = st.toggle('是')
+my_open1 = st.toggle('不是')
+if my_open:
+    name = st.text_input('用户名')
+    if st.button('登录'):
+        roading = st.progress(0, '开始加载')
+        for i in range(1, 101, 1):
+            time.sleep(0.02)
+            roading.progress(i, '正在加载网站页面'+str(i)+'%')
+        roading.progress(100, '加载完毕！')
+        st.link_button('进入网站', 'https://o2ub3rtpuaf4q38kicbf2f.streamlit.app/')
+if my_open1:
+    st.write('看来这个网站不适合你哟，去别的网站看看吧！')
+page = st.sidebar.radio('我的首页',['飞友狂欢主页','飞友的图片处理工具','空中浩劫全集超链接','飞友的英文词典','飞友留言区','飞马游戏推荐','实时新闻'])
 def page1():
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
@@ -115,11 +130,12 @@ def page4():
 
 
 def page5():
+    global name
     with open('1.mp3','rb') as f:
         mymp3 = f.read()
     st.audio(mymp3, format='audio/mp3',start_time = 0)
     st.write(':sunglasses:飞友留言区:sunglasses:')
-    st.write('对不起飞友们，这个聊天框是很老的版本了，所以有一些小bug。1.你只能取一次名字，取了就不能改了。2.你必须按两次留言键（虽然会显示两次，不过不影响，按一次显示不了）：')
+    st.write('对不起飞友们，这个聊天框是很老的版本了，所以有一些小bug。你必须按两次留言键（虽然会显示两次，不过不影响，按一次显示不了）：')
     n = st.text_input('取名')
     with open('leave_messages.txt', 'r', encoding='utf-8') as f:
         messages_list = f.read().split('\n')
@@ -132,14 +148,12 @@ def page5():
         elif i[1] == '李四':
             with st.chat_message('🍥'):
                 st.write(i[1],':',i[2])
-        elif i[1] == n:
+        elif i[1] == name:
             with st.chat_message('🍥'):
                 st.write(i[1],':',i[2])
-    name = st.selectbox('我是……：', ['张三', '李四',n])
     new_message = st.text_input('想要说的话……')
     if st.button('留言'):
         messages_list.append([str(int(messages_list[-1][0])+1), name, new_message])
-        messages_list.append([str(int(messages_list[-1][0])+1), n, new_message])
         with open('leave_messages.txt', 'w', encoding='utf-8') as f:
             message = ''
             for i in messages_list:
@@ -162,6 +176,12 @@ def page6():
     st.write(msg7)
     st.write(msg8)
     st.write(msg9)
+def page7():
+    with open('1.mp3','rb') as f:
+        mymp3 = f.read()
+    st.audio(mymp3, format='audio/mp3',start_time = 0)
+    st.title(沉痛)
+    st.header('[:cry:巴西沃帕斯航空2283号班机在当地时间8月9日在巴西东南部圣保罗州维涅杜市坠毁，机上61人全部遇难:cry:]')
 
 def img_change(img, rc, gc, bc):
     width, height = img.size
@@ -188,3 +208,5 @@ elif (page == '飞友留言区') :
     page5()
 elif (page == '飞马游戏推荐') :
     page6()
+elif (page == '实时新闻') :
+    page7()
